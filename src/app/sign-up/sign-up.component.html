@@ -1,0 +1,12 @@
+<div class="sign-up">
+    <h1>Sign Up</h1>
+    <form  class="common-form" [formGroup]="signUpForm"  (submit)="handleSubmit()">
+        <input type="text" class="form-input" [ngClass]=" signUpForm.controls['name'].invalid && signUpForm.controls['name'].touched ? 'error': ''" placeholder="Enter Name" formControlName="name">
+        
+        <input type="password" class="form-input" [ngClass]=" signUpForm.controls['password'].invalid && signUpForm.controls['password'].touched ? 'error': ''" placeholder="Enter Password" formControlName="password">
+
+        <input type="email" class="form-input" [ngClass]=" signUpForm.controls['email'].invalid && signUpForm.controls['email'].touched ? 'error': ''" placeholder="Enter Email" formControlName="email">
+        <button class="form-btn" [disabled]="signUpForm.invalid">Sign up</button>
+
+    </form>
+</div>
