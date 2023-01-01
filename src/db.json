@@ -1,9 +1,9 @@
 {
   "sellers": [
     {
-      "name": "Sam",
+      "name": "Sameer",
       "password": "123456",
-      "email": "sam@gmail.com",
+      "email": "sameer@gmail.com",
       "id": 1
     },
     {
