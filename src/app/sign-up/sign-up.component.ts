@@ -15,25 +15,44 @@ export class SignUpComponent implements OnInit {
     ){
 
   }
+  showLoginForm:boolean=false;
  
 
   ngOnInit() {
     
   }
-  emailPattern=/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+  emailPattern=/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
   signUpForm=this.fb.group({
     name:["",Validators.compose([Validators.required,Validators.maxLength(5)])],
     password:["",Validators.compose([Validators.required,Validators.minLength(6)])],
     email:["",Validators.compose([Validators.required,Validators.pattern(this.emailPattern)])]
 })
-  handleSubmit(){
-    if (this.signUpForm.valid) {
+
+  loginForm=this.fb.group({
+    email:["",Validators.compose([Validators.required,Validators.pattern(this.emailPattern)])],
+    password:["",Validators.compose([Validators.required,Validators.minLength(6)])]
+
+  })
+  handleSignUp(){
       this.sellerService.registerSeller(this.signUpForm.value).subscribe(d=>{
         console.log(d)
         this.router.navigate([''])
       })
-    }
+  }
+
+  handleLogin(){
+    console.log(this.loginForm.value);
+    this.router.navigate([''])
+
     
+
+  }
+
+  showLogin(){
+    this.showLoginForm=true;
+  }
+  showSignUp(){
+    this.showLoginForm=false;
   }
 }

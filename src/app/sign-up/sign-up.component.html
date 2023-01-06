@@ -1,12 +1,28 @@
-<div class="sign-up">
+<div *ngIf="!showLoginForm" class="sign-up">
     <h1>Sign Up</h1>
-    <form  class="common-form" [formGroup]="signUpForm"  (submit)="handleSubmit()">
+    <form  class="common-form" [formGroup]="signUpForm"  (submit)="handleSignUp()">
         <input type="text" class="form-input" [ngClass]=" signUpForm.controls['name'].invalid && signUpForm.controls['name'].touched ? 'error': ''" placeholder="Enter Name" formControlName="name">
         
         <input type="password" class="form-input" [ngClass]=" signUpForm.controls['password'].invalid && signUpForm.controls['password'].touched ? 'error': ''" placeholder="Enter Password" formControlName="password">
 
         <input type="email" class="form-input" [ngClass]=" signUpForm.controls['email'].invalid && signUpForm.controls['email'].touched ? 'error': ''" placeholder="Enter Email" formControlName="email">
         <button class="form-btn" [disabled]="signUpForm.invalid">Sign up</button>
+
+        <a class="toggle-link" (click)="showLogin()">Already have account?</a>
+
+    </form>
+</div>
+<div *ngIf="showLoginForm" class="login">
+    <h1>Login</h1>
+    <form  class="common-form" [formGroup]="loginForm"  (submit)="handleLogin()">
+        
+        <input type="email" class="form-input" [ngClass]=" loginForm.controls['email'].invalid && loginForm.controls['email'].touched ? 'error': ''" placeholder="Enter Email" formControlName="email">
+
+        <input type="password" class="form-input" [ngClass]=" loginForm.controls['password'].invalid && loginForm.controls['password'].touched ? 'error': ''" placeholder="Enter Password" formControlName="password">
+
+        <button class="form-btn" [disabled]="loginForm.invalid">Login</button>
+        <a class="toggle-link" (click)="showSignUp()">Don't have account?</a>
+
 
     </form>
 </div>
