@@ -1,8 +1,14 @@
-.sign-up{
+.sign-up,.login{
     margin-top: 100px;
     h1{
         margin-bottom: 20px;
         text-align: center;
         color: var(--themeColor);
+    }
+
+    .toggle-link{
+        margin-top: 20px;
+        color: blue;
+        cursor: pointer;
     }
 }

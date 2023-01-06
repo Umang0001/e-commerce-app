@@ -15,12 +15,19 @@
 *{ 
     font-family: cursive;
 }
+body{
+    font-size: 16px;
+}
 
 :root{
     --themeColor:green;
     --blackColor: #000;
     --errorColor:red;
 }
+
+
+
+// common stylings
 
 .common-form{
     display: flex;
