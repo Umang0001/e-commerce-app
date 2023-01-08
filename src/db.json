@@ -7,22 +7,58 @@
       "id": 1
     },
     {
-      "name": "Umang",
+      "name": "umang@gmail.com",
       "password": "123456",
-      "email": "umang@gmail.com",
+      "email": "!@a",
       "id": 2
     },
     {
-      "name": "Raj",
+      "name": "umang@gmail.com",
       "password": "123456",
-      "email": "raj@test.com",
+      "email": "1@a",
       "id": 3
     },
     {
-      "name": "Ajay",
+      "name": "umang@gmail.com",
       "password": "123456",
-      "email": "ajay@test.com",
+      "email": "1@1",
       "id": 4
+    },
+    {
+      "name": "umang@gmail.com",
+      "password": "123456",
+      "email": "1@1",
+      "id": 5
+    },
+    {
+      "name": "umang@gmail.com",
+      "password": "123456",
+      "email": "1@1",
+      "id": 6
+    },
+    {
+      "name": "umang@gmail.com",
+      "password": "123456",
+      "email": "1@1",
+      "id": 7
+    },
+    {
+      "name": "umang@gmail.com",
+      "password": "123456",
+      "email": "1@1",
+      "id": 8
+    },
+    {
+      "name": "umang@gmail.com",
+      "password": "123456",
+      "email": "1@1",
+      "id": 9
+    },
+    {
+      "name": "umang@gmail.com",
+      "password": "123456",
+      "email": "1@1",
+      "id": 10
     }
   ]
 }
