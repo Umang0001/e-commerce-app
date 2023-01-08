@@ -1,6 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { sellerSignInObj } from '../interfaces';
 import { SellerSignUpService } from '../services/seller-sign-up.service';
 
 @Component({
@@ -15,16 +16,18 @@ export class SignUpComponent implements OnInit {
     ){
 
   }
-  showLoginForm:boolean=false;
- 
+  
+  
+  showLoginForm:any;
+
 
   ngOnInit() {
     
   }
   emailPattern=/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
-  signUpForm=this.fb.group({
-    name:["",Validators.compose([Validators.required,Validators.maxLength(5)])],
+  signUpForm =this.fb.group({
+    name:["",Validators.compose([Validators.required,Validators.minLength(5)])],
     password:["",Validators.compose([Validators.required,Validators.minLength(6)])],
     email:["",Validators.compose([Validators.required,Validators.pattern(this.emailPattern)])]
 })
@@ -35,15 +38,17 @@ export class SignUpComponent implements OnInit {
 
   })
   handleSignUp(){
-      this.sellerService.registerSeller(this.signUpForm.value).subscribe(d=>{
-        console.log(d)
-        this.router.navigate([''])
-      })
-  }
-
-  handleLogin(){
-    console.log(this.loginForm.value);
-    this.router.navigate([''])
+    this.sellerService.registerSeller(this.signUpForm.value)
+    this.showLoginForm=this.sellerService.showLoginForm;
+     
+    }
+    
+    handleLogin(){
+      this.sellerService.loginSeller(this.loginForm.value).subscribe((d:any)=>{
+        console.log(d[0]);
+        // this.router.navigate(['seller-home'])
+      
+    })
 
     
 
