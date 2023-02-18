@@ -12,6 +12,9 @@
 
     </form>
 </div>
+<div class="error" *ngIf="sellerService.loginError">
+    <p>Please enter correct credentials</p>
+</div>
 <div *ngIf="showLoginForm" class="login">
     <h1>Login</h1>
     <form  class="common-form" [formGroup]="loginForm"  (submit)="handleLogin()">

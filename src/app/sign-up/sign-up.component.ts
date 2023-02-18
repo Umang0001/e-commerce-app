@@ -11,18 +11,22 @@ import { SellerSignUpService } from '../services/seller-sign-up.service';
 })
 export class SignUpComponent implements OnInit {
   constructor(private fb:FormBuilder,
-    private sellerService:SellerSignUpService,
+    public sellerService:SellerSignUpService,
     private router:Router
     ){
 
   }
   
   
-  showLoginForm:any
+  showLoginForm:any=false;
 
 
   ngOnInit() {
-    
+    this.sellerService.showLoginForm.subscribe(d=>{
+      this.showLoginForm=d;
+      console.log(d);
+      
+    })
     
   }
   emailPattern=/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -40,26 +44,20 @@ export class SignUpComponent implements OnInit {
   })
   handleSignUp(){
     this.sellerService.registerSeller(this.signUpForm.value)
-    this.showLoginForm=true;
     
      
     }
     
     handleLogin(){
-      this.sellerService.loginSeller(this.loginForm.value).subscribe((d:any)=>{
-        console.log(d);
-        // this.router.navigate(['seller-home'])
-      
-    })
-
-    
-
+      this.sellerService.loginSeller(this.loginForm.value)
+        
   }
 
   showLogin(){
-    this.showLoginForm=true;
+    this.sellerService.showLoginForm.next(true)
   }
   showSignUp(){
-    this.showLoginForm=false;
+    this.sellerService.showLoginForm.next(false)
+
   }
 }
