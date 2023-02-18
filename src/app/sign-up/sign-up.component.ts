@@ -18,10 +18,11 @@ export class SignUpComponent implements OnInit {
   }
   
   
-  showLoginForm:any;
+  showLoginForm:any
 
 
   ngOnInit() {
+    
     
   }
   emailPattern=/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -39,13 +40,14 @@ export class SignUpComponent implements OnInit {
   })
   handleSignUp(){
     this.sellerService.registerSeller(this.signUpForm.value)
-    this.showLoginForm=this.sellerService.showLoginForm;
+    this.showLoginForm=true;
+    
      
     }
     
     handleLogin(){
       this.sellerService.loginSeller(this.loginForm.value).subscribe((d:any)=>{
-        console.log(d[0]);
+        console.log(d);
         // this.router.navigate(['seller-home'])
       
     })

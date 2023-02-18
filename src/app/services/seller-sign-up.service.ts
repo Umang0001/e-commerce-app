@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import {sellerSignInObj} from '../interfaces'
 
 @Injectable({
   providedIn: 'root'
@@ -14,11 +15,7 @@ export class SellerSignUpService {
   regSellerUrl="http://localhost:3000/sellers";
 
   registerSeller(data:object){
-   this.http.post(this.regSellerUrl,data,{observe:'response'}).subscribe((res:any)=>{
-    if(res){
-      this.showLoginForm.next(true);
-    }
-   })
+   return this.http.post(this.regSellerUrl,data);
   }
 
   loginSeller(user:any){
