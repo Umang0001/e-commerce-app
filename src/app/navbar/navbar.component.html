@@ -1,15 +1,21 @@
 <nav class="nav">
     <p class="logo">MyShop</p>
-    <div class="search-section">
+    <div class="search-section" *ngIf="usertype=='default'">
         <input type="text" class="search-box" placeholder="Search Products" />
         <button>Search</button>
     </div>
-    <div class="nav-links">
-        <ul>
+    <div class="nav-links" [ngSwitch]="usertype">
+        <ul *ngSwitchCase="'default'">
             <li routerLink=""><a >Home</a></li>
             <li><a routerLink="seller-auth">Seller</a></li>
             <li><a routerLink="cart">Cart(0)</a></li>
             <li><a routerLink="login">Login</a></li>
+        </ul>
+        <ul *ngSwitchCase="'seller'">
+            <li routerLink=""><a >Products List</a></li>
+            <li><a routerLink="seller-auth">Add Product</a></li>
+            <li><a >{{currentSeller.name}}</a></li>
+            <li><a (click)="handleLogout()">Logout</a></li>
         </ul>
     </div>
 </nav>
