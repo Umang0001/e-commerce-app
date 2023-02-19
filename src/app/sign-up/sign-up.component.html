@@ -12,18 +12,18 @@
 
     </form>
 </div>
-<div class="error" *ngIf="sellerService.loginError">
-    <p>Please enter correct credentials</p>
-</div>
+
+
 <div *ngIf="showLoginForm" class="login">
     <h1>Login</h1>
     <form  class="common-form" [formGroup]="loginForm"  (submit)="handleLogin()">
         
         <input type="email" class="form-input" [ngClass]=" loginForm.controls['email'].invalid && loginForm.controls['email'].touched ? 'error': ''" placeholder="Enter Email" formControlName="email">
-
+        
         <input type="password" class="form-input" [ngClass]=" loginForm.controls['password'].invalid && loginForm.controls['password'].touched ? 'error': ''" placeholder="Enter Password" formControlName="password">
-
-        <button class="form-btn" [disabled]="loginForm.invalid">Login</button>
+        
+        <button class="form-btn">Login</button>
+        <p *ngIf="sellerService.loginError" class=" login-error text-center error-text">Please enter correct credentials</p>
         <a class="toggle-link" (click)="showSignUp()">Don't have account?</a>
 
 

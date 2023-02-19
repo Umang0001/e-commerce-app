@@ -11,7 +11,7 @@ export class SellerSignUpService {
 
   constructor(private http:HttpClient,private router:Router) { }
 
-  showLoginForm=new BehaviorSubject<boolean>(false);
+  showLoginForm=new BehaviorSubject<boolean>(true);
   loginError=false;
 
   regSellerUrl="http://localhost:3000/sellers";
@@ -33,7 +33,8 @@ export class SellerSignUpService {
         console.log(d);
         if (d.body.length) {
           console.log("user found");
-          this.router.navigate(['/'])
+          localStorage.setItem("seller",JSON.stringify(d.body[0]))
+          this.router.navigate(['seller-home'])
           
         }
         else{

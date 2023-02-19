@@ -22,6 +22,12 @@ export class SignUpComponent implements OnInit {
 
 
   ngOnInit() {
+    let currentSeller=JSON.parse((localStorage.getItem("seller"))!)
+    if (currentSeller) {
+      this.router.navigate(['seller-home'])
+    }
+
+    
     this.sellerService.showLoginForm.subscribe(d=>{
       this.showLoginForm=d;
       console.log(d);
